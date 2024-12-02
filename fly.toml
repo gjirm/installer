@@ -1,40 +1,46 @@
-# fly.toml file generated for installer on 2023-06-13T22:48:35+10:00
+# fly.toml app configuration file generated for jirm-installer on 2024-12-02T13:59:16+01:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
 
-app = "installer"
-kill_signal = "SIGINT"
-kill_timeout = 5
-
-[build]
-dockerfile = ".github/Dockerfile.fly"
-
-[env]
-PORT = "8080"
+app = 'jirm-installer'
+kill_signal = 'SIGINT'
+kill_timeout = '5s'
 
 [experimental]
-auto_rollback = true
+  auto_rollback = true
+
+[build]
+  dockerfile = '.github/Dockerfile.fly'
+
+[env]
+  PORT = '8080'
 
 [[services]]
-http_checks = []
-internal_port = 8080
-processes = ["app"]
-protocol = "tcp"
-script_checks = []
-[services.concurrency]
-hard_limit = 25
-soft_limit = 20
-type = "connections"
+  protocol = 'tcp'
+  internal_port = 8080
+  processes = ['app']
 
-[[services.ports]]
-force_https = true
-handlers = ["http"]
-port = 80
+  [[services.ports]]
+    port = 80
+    handlers = ['http']
+    force_https = true
 
-[[services.ports]]
-handlers = ["tls", "http"]
-port = 443
+  [[services.ports]]
+    port = 443
+    handlers = ['tls', 'http']
 
-[[services.tcp_checks]]
-grace_period = "1s"
-interval = "15s"
-restart_limit = 0
-timeout = "2s"
+  [services.concurrency]
+    type = 'connections'
+    hard_limit = 25
+    soft_limit = 20
+
+  [[services.tcp_checks]]
+    interval = '15s'
+    timeout = '2s'
+    grace_period = '1s'
+
+[[vm]]
+  memory = '1gb'
+  cpu_kind = 'shared'
+  cpus = 1

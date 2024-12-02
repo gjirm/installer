@@ -156,7 +156,7 @@ func (h *Handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	// validate query
 	valid := q.Program != ""
 	if !valid && path == "" {
-		http.Redirect(w, r, "https://github.com/jpillora/installer", http.StatusMovedPermanently)
+		http.Redirect(w, r, "https://github.com/gjirm/installer/tree/jirm-main", http.StatusMovedPermanently)
 		return
 	}
 	if !valid {
