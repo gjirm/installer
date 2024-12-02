@@ -12,12 +12,12 @@ Installer is an HTTP server which returns shell scripts. The returned script wil
 
 ```sh
 # install <user>/<repo> from github
-curl https://i.jpillora.com/<user>/<repo>@<release>! | bash
+curl https://i.jirm.cz/<user>/<repo>@<release>! | bash
 ```
 
 ```sh
 # search web for github repo <query>
-curl https://i.jpillora.com/<query>! | bash
+curl https://i.jirm.cz/<query>! | bash
 ```
 
 *Or you can use* `wget -qO- <url> | bash`
@@ -39,20 +39,20 @@ curl https://i.jpillora.com/<query>! | bash
 
 ## Security
 
-:warning: Although I promise [my instance of `installer`](https://i.jpillora.com/) is simply a copy of this repo - you're right to be wary of piping shell scripts from unknown servers, so you can host your own server [here](#host-your-own) or just leave off `| bash` and checkout the script yourself.
+:warning: Although I promise [my instance of `installer`](https://i.jirm.cz/) is simply a copy of this repo - you're right to be wary of piping shell scripts from unknown servers, so you can host your own server [here](#host-your-own) or just leave off `| bash` and checkout the script yourself.
 
 ## Examples
 
-* https://i.jpillora.com/serve
-* https://i.jpillora.com/cloud-torrent
-* https://i.jpillora.com/yudai/gotty@v0.0.12
-* https://i.jpillora.com/mholt/caddy
-* https://i.jpillora.com/caddy
-* https://i.jpillora.com/rclone
-* https://i.jpillora.com/ripgrep?as=rg
+* https://i.jirm.cz/serve
+* https://i.jirm.cz/cloud-torrent
+* https://i.jirm.cz/yudai/gotty@v0.0.12
+* https://i.jirm.cz/mholt/caddy
+* https://i.jirm.cz/caddy
+* https://i.jirm.cz/rclone
+* https://i.jirm.cz/ripgrep?as=rg
 
     ```sh
-    $ curl -s i.jpillora.com/mholt/caddy! | bash
+    $ curl -s i.jirm.cz/mholt/caddy! | bash
     Downloading mholt/caddy v0.8.2 (https://github.com/mholt/caddy/releases/download/v0.8.2/caddy_darwin_amd64.zip)
     ######################################################################## 100.0%
     Downloaded to /usr/local/bin/caddy
@@ -62,7 +62,7 @@ curl https://i.jpillora.com/<query>! | bash
 
 ## Private repos
 
-You'll have to set `GITHUB_TOKEN` on both your server (instance of `installer`) and client (before you run `curl https://i.jpillora.com/foobar | bash`)
+You'll have to set `GITHUB_TOKEN` on both your server (instance of `installer`) and client (before you run `curl https://i.jirm.cz/foobar | bash`)
 
 See https://github.com/jpillora/installer/issues/31 for how this could improved
 
@@ -71,7 +71,7 @@ See https://github.com/jpillora/installer/issues/31 for how this could improved
 * Install installer with installer
 
     ```sh
-    curl -s https://i.jpillora.com/installer | bash
+    curl -s https://i.jirm.cz/installer | bash
     ```
 
 * Install from source
@@ -106,7 +106,7 @@ Currently, installing via Homebrew does not work. Homebrew was intended to be su
 
 ```
 #does not work
-brew install https://i.jpillora.com/serve
+brew install https://i.jirm.cz/serve
 ```
 
 However, homebrew formulas require an SHA1 hash of each binary and currently, the only way to get is to actually download the file. It **might** be acceptable to download all assets if the resulting `.rb` file was cached for a long time.
