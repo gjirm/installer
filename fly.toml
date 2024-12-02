@@ -11,7 +11,7 @@ kill_timeout = '5s'
   auto_rollback = true
 
 [build]
-  dockerfile = '.github/Dockerfile.fly'
+  dockerfile = '.github/Dockerfile.fly.jirm'
 
 [env]
   PORT = '8080'
